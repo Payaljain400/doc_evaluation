@@ -1,0 +1,533 @@
+
+How To Make Webpage in ONE HOUR
+
+The website can be created using following languages : HTML, CSS and 960 Grid.
+
+One of basic Software needed for making a site is Sublime.
+
+Steps for creating a website:
+
+1. Gather the idea of design that you want to execute on your website.
+
+2. Install the software(Sublime) required on the PC.
+
+3. Now start using HTML,CSS and 960 Grid languages to design your website as per required.
+
+4. After coding the website save the code using .html extension and open it in the browser available.
+
+Note : Only static websites can be designed using the given languages.
+
+HTML
+• Is a markup language understood by web browsers.Primarily designed for desired look and feel.
+• Easy to learn.
+• Structure of web pages
+• Documents are described with HTML tags
+• Uses fixed set of predefined tags
+• Describes appearance as well as structure of the data
+Example-
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+</html>
+
+
+
+HTML Elements and Tags:
+
+Elements give the structure of HTML Documents . All elements have the same format - begins with “<” and end with “>” .
+<!DOCTYPE...> This tag defines the document type and HTML version 5.
+<html> This tag encloses the complete HTML document and mainly comprises of document header which is represented by <head>...</head> and document body which is represented by <body>...</body> tags.
+<head> This tag represents the document's header which can keep other HTML tags like <title>, <link> etc.
+<title> The <title> tag is used inside the <head> tag to mention the document title.
+<body> This tag represents the document's body which keeps other HTML tags like <h1>, <div>, <p> etc.
+HTML also has six levels of headings, which use the elements <h1>, <h2>, <h3>, <h4>, <h5>, and <h6>.
+<p> defines a paragraph tag.
+<br> is a line break tag.
+<b> indicates bold .
+<strong> this tag is similiar to bold.
+<i> this text will be italised.
+<u> this text will be underlined.
+
+<img> tag :
+
+Images are defined with the <img> tag.
+Has attributes as - Src (source) , Alt (alternative text) , Width , Height.
+Example-
+
+<img src=”...” alt=”...” height=” “ width=” ”>
+
+<a> tag :
+
+This is anchor tag and is used to open a link or move to a different web page. The website address is specified using href attribute.
+Use target = “_blank” to open the url in a new window.
+Example-
+
+<a href=”url” target=”_blank”> link text</a>
+
+List : 
+
+ordered and unordered.
+<ol> : this is ordered list tag.
+Has attributes as – start(specifies start number) , type(number or alphabets).
+
+<ul> : this is unordered list tag.
+Has attributes as – type(square/disc/circle)
+
+<li> : this is to add the list values
+Example-
+
+<ol type=”1”>
+<li>list item</li>
+<li>list item</li>
+<li>list item</li>
+</ol>
+
+Example-
+
+<ul type=”square”>
+<li>list item</li>
+<li>list item</li>
+<li>list item</li>
+</ul>
+
+<table> tag :
+
+Is used to display the tabular data as rows and columns.
+<tr> represents table row.
+<td> represent table data.
+<th> represent table head.
+
+Example-
+
+<table>
+<tr>
+<th>table head</th>
+<th>table head</th>
+<th>table head</th>
+</tr>
+<tr>
+<td>table data</td>
+<td>table data</td>
+<td>table data</td>
+</tr>
+</table>
+
+
+<form> tag :
+
+<form> element defines a form that is used to collect user input.
+Has attributes as- 
+–name used while validating a form
+–method specifies whether get/post is used to carry form values
+–action specifies the address that gets called on clicking submit
+Example-
+
+< form action=”action page” method=”get/post”>
+
+The <input> element can be displayed in several ways, depending on the type attribute.
+
+Types are :
+–Textfield
+–Password
+–Radio
+–Checkbox
+–Submit 
+–Reset
+–Button 
+Example-
+
+<nav> tag:
+Represents a section of a page that links to other pages or to parts within the page 
+Example-
+
+<nav>
+<ul>
+<li> list </li>
+<li> list </li>
+<li> list </li>
+</ul>
+</nav>
+
+<footer> tag :
+Represents a footer for its nearest ancestor sectioning content. 
+Example-
+
+<footer>
+<p> text</p>
+</footer>
+
+<output> tag :
+
+represents the result of a calculation (like one performed by a script).
+This tag should be added inside the form to get the result.
+
+<video> element : 
+
+<video> element specifies a standard way to embed a video/movie on a web page.
+Example-
+
+<video src=”..”>
+</video> 
+
+Embed Videos :
+
+ Embed videos from youtubeusing iframe.
+Example-
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/y3UH2gAhwPI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CSS
+
+CSS is a language that describes the style of an HTML document.
+CSS describes how HTML elements should be displayed.
+Three Types of CSS
+CSS comes in three types:
+In a separate file (external)
+At the top of a web page document (internal)
+Right next to the text it decorates (inline)
+External Style Sheet
+With an external style sheet, you can change the look of an entire website by changing just one file!
+Each page must include a reference to the external style sheet file inside the <link> element. The <link> element goes inside the <head> section:
+Example -
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+Internal Style Sheet
+An internal style sheet may be used if one single page has a unique style.
+Internal styles are defined within the <style> element, inside the <head> section of an HTML page
+Example –
+
+<head>
+<style>
+body {
+    background-color: linen;
+}
+h1 {
+    color: maroon;
+    margin-left: 40px;
+}
+</style>
+</head>
+
+
+Inline Styles
+
+An inline style may be used to apply a unique style for a single element.
+To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.
+The example below shows how to change the color and the left margin of a <h1> element
+Example –
+
+<h1 style="color:blue;margin-left:30px;">This is a heading</h1>
+
+The element Selector
+
+The element selector selects elements based on the element name.
+You can select all <p> elements on a page like this (in this case, all <p> elements will be center-aligned, with a red text color)
+Example –
+
+p {
+    text-align: center;
+    color: red;
+}
+
+The id Selector
+The id selector uses the id attribute of an HTML element to select a specific element.
+The id of an element should be unique within a page, so the id selector is used to select one unique element!
+To select an element with a specific id, write a hash (#) character, followed by the id of the element.
+The style rule below will be applied to the HTML element with id="para1"
+Example –
+
+#para1 {
+    text-align: center;
+    color: red;
+}
+
+The class Selector
+The class selector selects elements with a specific class attribute.
+To select elements with a specific class, write a period (.) character, followed by the name of the class.
+In the example below, all HTML elements with class="center" will be red and center-aligned
+Example –
+
+.center {
+    text-align: center;
+    color: red;
+}
+
+CSS–Background:
+background-color to set the background color of an element.
+background-image to set the background image of an element.
+Background-position to control the position of an image in the background.
+Background-attachment property is used to control the scrolling of an image.
+Background-repeat is used to control the repetition of an image.
+background is shorthand to specify a number of other background property.
+Example-
+
+body{
+background-color: blue;
+background-image: url("abc.jpg");
+background-position: top center;
+background-repeat: no-repeat;
+}
+CSS–Fonts:
+font-family is used to change the face of a font.
+font-style used to make a font italic or oblique.
+font-weight used to increase or decrease the boldness for a font .
+font-size used to increase or decrease the size of a font.
+font is a shorthand to specify a number of other font properties.
+Example-
+p{ font-family: serif; font-style: oblique;
+font-variant: small-caps; font-weight: normal;
+font-size: 30px;}
+CSS-Text:
+color is used to set the color of a text.
+Direction is used to set the text direction.
+Letter-spacing is used to add or subtract space between the letters in a word.
+Word-spacing is used to add/subtract space between the words of a sentence.
+Text-indent is used to indent the text of a paragraph.
+Text-align is used to align the text of a document.
+Text-decoration is used to underline, overline, or strikethrough text.
+Text-transform is used to capitalize text or convert text to uppercase or
+lowercase letters.
+White-space is used to control the flow and formatting of text.
+Text-shadow is used to set the text shadow around a text.
+Example-
+h1{text-shadow: 10px 10px red;
+text-align: center;}
+span{word-spacing: 5px;
+text-transform: uppercase;
+text-align: justify;
+text-decoration: line-through;}
+p{color: red;
+direction: rtl;
+letter-spacing: 5px;
+text-indent:5cm;
+white-space: pre-wrap;}
+CSS – Links:
+:link
+for unvisited hyperlinks.
+:visited
+for visited hyperlinks.
+:active
+Is when the user is currently clicking the link.
+:hover
+happens when the user's mouse pointer hover over the element.
+Example-
+.ab:visited{color:blue ;}
+.bc:hover{word-spacing: 15px;}
+.cd:active{letter-spacing: 20px;}
+.de:link{color:blue;}
+
+CSS-Display :
+• Hiding an element can be done by setting the property – display :none,                             visibility :hidden 
+visibility: hidden 
+• Hides an element but it takes up the same space as before the element will be hidden
+display :none 
+• Hides an element, and it will not use up any space
+Example-
+
+<p style=”visibility: hidden”>abc</p>
+<p style=”display:none”>abc</p>
+
+CSS-Positioning :
+
+• This specifies how an element is positioned in a document. 
+• The elements are then positioned using top, bottom, left and right properties 
+• The position values are 
+– static
+– fixed
+– relative
+– absolute
+
+Positioning - static 
+
+• Static positioning is the default positioning model for elements. 
+• They are positioned according to the normal flow of the page 
+• The top, left, right and bottom properties have no value.
+
+Example-
+<div id=”a”>payal</div>
+now in css file 
+
+#a
+{
+  position:static;
+}
+
+Positioning - relative 
+
+• Relative positioning allows to specify an offset (top, right, bottom, left) which is relative to the element's normal position in HTML flow.
+
+Example-
+<div id=”a”>payal</div>
+now in css file 
+
+#a
+{
+  position:relative;
+}
+
+
+
+
+Positioning - absolute 
+
+• An element that is absolutely positioned is taken out of the flow. The other elements are positioned as if it did not exist. 
+• The element is positioned relative to the nearest positioned ancestor. 
+• They are bound by the viewport and will cause scrolling 
+• If there are no ancestors, then positioned relative to the entire document body.
+
+Example-
+<div id=”a”>payal</div>
+now in css file 
+
+#a
+{
+  position:absolute;
+}
+
+Positioning - fixed 
+
+• This restricts an element to a specific position in the viewport, which always stays in the same place even if the page is scrolled. 
+
+Example-
+<div id=”a”>payal</div>
+now in css file 
+
+#a
+{
+  position:fixed;
+}
+
+CSS Box Model :
+
+• CSS box model is a box that wraps around every HTML element. 
+• It has margins, borders, padding, and the actual content. 
+Content - The content of the box, where text and images appear.
+Padding - Clears an area around the content. It is transparent. 
+Border - A border that goes around the padding and content. 
+Margin - Clears an area outside the border and is transparent. 
+Total element width= width + left padding + right padding + left border + right border + left margin + right margin.
+Total element height = height + top padding + bottom padding + top border + bottom border + top margin + bottom margin.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CSS Transitions :
+
+• Transitions allows you to change property values smoothly (from one value to another), over a given duration. 
+• The transition effect will start when the specified CSS property changes value. • To create a transition effect, specify – the CSS property to add an effect to – the duration of the effect
+
+Example-
+
+<div>hello</div>
+
+<style>
+div
+{
+  transition-property: width;
+  transition-duration: 2s;
+  transition-time-function: ease;
+  transition-delay: 1s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+960 GRID:
+
+The 960 Grid system is an effort to streamlime web development workflow by providing commonly used dimensions, based on a width of 960 pixels. 
+There are three variants: 12, 16 and 24.
+Example-
+______
+<div class=”container_12”>__
+   <div class=”grid_6 prefix_2”>
+   </div>
+   <div class=”grid_6 ”>
+</div>
+</div>
+
+
+
+
+
+Now, In this <div> is a division tag.
+
+container_12 is a class which will take screen size as 12 for our website.
+It total takes 960 pixels so when we will divide 960 by 12 then it comes 80 pixels per column.
+We also have container_16 and container_24 classes.
+
+Now, after taking the container class we can divide it in grids according to our requirements.
+Grid_6 is a class in which it will occupy the 6 columns of our container.
+Similarly, we can take grid of any no of columns.
+
+Prefix_2 is a class in which it will leave the 2 columns from the left of our grid and occupy the other left behind.
+Similarly, we can leave any no of columns by prefix_ class.
+
+Now, in the example we are making a container of 12 columns and then dividing this container into 2 parts by taking grid of 6-6 columns.
+
+
+
+
+12 COLUMN GRID:
+
+
+
+
+
+
+
+
+
+16 COLUMN GRID:
+
+
+
+24 COLUMN GRID:
+
+
