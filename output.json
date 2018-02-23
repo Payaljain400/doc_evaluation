@@ -4,5 +4,8 @@
   },
   "spellchecking": {
     "no_of_mistakes": 187
+  },
+  "Stringmatch": {
+    "string_match": 72
   }
 }

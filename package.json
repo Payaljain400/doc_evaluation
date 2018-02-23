@@ -12,6 +12,7 @@
   "dependencies": {
     "natural": "^0.5.6",
     "spellchecker": "^3.4.4",
+    "string-similarity": "^1.2.0",
     "typo-js": "^1.0.3"
   }
 }
