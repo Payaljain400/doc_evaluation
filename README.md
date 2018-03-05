@@ -1,1 +1,1 @@
-# doc_evaluation
+this is a document evaluation project in which we compare our document with a standard document and basis on the part of speech, wordcount, similarity with standard document we will rate our document.
