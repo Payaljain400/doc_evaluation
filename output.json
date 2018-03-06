@@ -1,0 +1,22 @@
+{
+  "Standard": {
+    "wordCount": 3369,
+    "nouns": 817,
+    "adjectives": 134,
+    "verbs": 103
+  },
+  "Eval": {
+    "wordCount": 2186,
+    "nouns": 622,
+    "adjectives": 102,
+    "verbs": 100
+  },
+  "Result": {
+    "commonNouns": 487,
+    "commonAdjectives": 59,
+    "commonVerbs": 55,
+    "docStatus": "Rejected",
+    "docScore": 0,
+    "docRemarks": "Document does not satisfy word limit range"
+  }
+}

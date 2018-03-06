@@ -34,7 +34,7 @@ var standardTokens = tokenizer.tokenize(standardDocument);
 var evalTokens = tokenizer.tokenize(evalDocument);
 var standardTagged = tagger.tag(standardTokens);
 var evalTagged = tagger.tag(evalTokens);
-
+console.log(evalTagged);
 
 
  for(var i=0; i < standardTagged.length; i++){ 
