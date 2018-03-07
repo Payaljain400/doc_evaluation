@@ -8,7 +8,7 @@ function getData(){
       if(this.readyState == 4 && this.status == 200){
       	var myArr= JSON.parse(this.responseText);
       	var dataObj= JSON.stringify(myArr);
-      	document.getElementById('button').innerHTML=dataObj;
+      	document.getElementById('show').innerHTML=dataObj;
 
        
     }  
