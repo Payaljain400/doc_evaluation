@@ -14,74 +14,74 @@ var lexicon = new natural.Lexicon(lexiconFilename, defaultCategory);
 var rules = new natural.RuleSet(rulesFilename);
 var tagger = new natural.BrillPOSTagger(lexicon, rules);
 
-var evalNouns = [];
-var standardNouns = [];
-var evalAdjectives = [];
-var standardAdjectives = [];
-var evalVerbs = [];
-var standardVerbs = [];
+var mydocNouns = [];
+var stdNouns = [];
+var mydocAdjectives = [];
+var stdAdjectives = [];
+var mydocVerbs = [];
+var stdVerbs = [];
 var similarNouns = 0;
 var similarAdjectives = 0;
 var similarVerbs = 0;
 
 
 //document to be evaluated
-var evalDocument = fs.readFileSync('documents/payal_960.txt','utf-8');
+var myDocument = fs.readFileSync('documents/payal_960.txt','utf-8');
 //standard document
-var standardDocument = fs.readFileSync('documents/stddoc.txt','utf-8');
+var stdDocument = fs.readFileSync('documents/stddoc.txt','utf-8');
 
-var standardTokens = tokenizer.tokenize(standardDocument);
-var evalTokens = tokenizer.tokenize(evalDocument);
-var standardTagged = tagger.tag(standardTokens);
-var evalTagged = tagger.tag(evalTokens);
-console.log(evalTagged);
+var stdTokens = tokenizer.tokenize(stdDocument);
+var mydocTokens = tokenizer.tokenize(myDocument);
+var stdTagged = tagger.tag(stdTokens);
+var mydocTagged = tagger.tag(mydocTokens);
+console.log(mydocTagged);
 
 
- for(var i=0; i < standardTagged.length; i++){ 
+ for(var i=0; i < stdTagged.length; i++){ 
     //noun
-    if(standardTagged[i][1] == "NN"|"NNS"|"NNP"|"NNPS")
-      standardNouns.push(standardTagged[i][0]);
+    if(stdTagged[i][1] == "NN"|"NNS"|"NNP"|"NNPS")
+      stdNouns.push(stdTagged[i][0]);
     //adjective
-    else if(standardTagged[i][1] == "JJ"|"JJR"|"JJS")
-      standardAdjectives.push(standardTagged[i][0]);
+    else if(stdTagged[i][1] == "JJ"|"JJR"|"JJS")
+      stdAdjectives.push(stdTagged[i][0]);
     //verb
-    else if(standardTagged[i][1] == "VB"|"VBD"|"VBG"|"VBN"|"VBP"|"VBZ")
-      standardVerbs.push(standardTagged[i][0]);
+    else if(stdTagged[i][1] == "VB"|"VBD"|"VBG"|"VBN"|"VBP"|"VBZ")
+      stdVerbs.push(stdTagged[i][0]);
 }
 
- for(var i=0; i < evalTagged.length; i++){ 
+ for(var i=0; i < mydocTagged.length; i++){ 
     //noun
-    if(evalTagged[i][1] == "NN"|"NNS"|"NNP"|"NNPS")
-      evalNouns.push(evalTagged[i][0]);
+    if(mydocTagged[i][1] == "NN"|"NNS"|"NNP"|"NNPS")
+      mydocNouns.push(mydocTagged[i][0]);
     //adjective
-    else if(evalTagged[i][1] == "JJ"|"JJR"|"JJS")
-      evalAdjectives.push(evalTagged[i][0]);
+    else if(mydocTagged[i][1] == "JJ"|"JJR"|"JJS")
+      mydocAdjectives.push(mydocTagged[i][0]);
     //verb
-    else if(evalTagged[i][1] == "VB"|"VBD"|"VBG"|"VBN"|"VBP")
-      evalVerbs.push(evalTagged[i][0]); 
+    else if(mydocTagged[i][1] == "VB"|"VBD"|"VBG"|"VBN"|"VBP")
+      mydocVerbs.push(mydocTagged[i][0]); 
 }
   //similar nouns
-  var corpus = standardNouns;
+  var corpus = stdNouns;
   var spellcheck = new natural.Spellcheck(corpus);
 
-  for(let i = 0; i < evalNouns.length; i++){
-  if(spellcheck.isCorrect(evalNouns[i]))
+  for(let i = 0; i < mydocNouns.length; i++){
+  if(spellcheck.isCorrect(mydocNouns[i]))
     similarNouns ++;
   }
 
   //similar adjectives
-  corpus = standardAdjectives;
+  corpus = stdAdjectives;
   spellcheck = new natural.Spellcheck(corpus);
-  for(let i = 0; i < evalAdjectives.length; i++){
-  if(spellcheck.isCorrect(evalAdjectives[i]))
+  for(let i = 0; i < mydocAdjectives.length; i++){
+  if(spellcheck.isCorrect(mydocAdjectives[i]))
     similarAdjectives++;
    }
 
   //similar verbs
-  corpus = standardVerbs;
+  corpus = stdVerbs;
   spellcheck = new natural.Spellcheck(corpus);
-  for(let i = 0; i < evalVerbs.length; i++){
-  if(spellcheck.isCorrect(evalVerbs[i]))
+  for(let i = 0; i < mydocVerbs.length; i++){
+  if(spellcheck.isCorrect(mydocVerbs[i]))
     similarVerbs++;
   }
 
@@ -90,22 +90,23 @@ var status;
 var remarks;
 
 //wordcount check
-var range = (standardTokens.length*20)/100
-var standardLength = standardTokens.length;
-var evalLength = evalTokens.length;
+var range = (stdTokens.length*20)/100
+var stdLength = stdTokens.length;
+var mydocLength = mydocTokens.length;
 
-if(evalLength <= standardLength-range || evalLength >= standardLength+range){
+if(mydocLength <= stdLength-range || mydocLength >= stdLength+range){
   status = "Rejected";
-  remarks="Document does not satisfy word limit range";
-    console.log("Document size invalid");
+  remarks="word limit range is not correct";
+    console.log("invalid size of Document");
 }else{
   status = "Accepted";
   //points
-  points+=(similarNouns/standardNouns.length)*5;
+  points+=(similarNouns/stdNouns.length)*5;
 
-  points+=(similarAdjectives/standardAdjectives.length)*5;
+  points+=(similarAdjectives/stdAdjectives.length)*5;
 
-  points+=(similarVerbs/standardVerbs.length)*5;
+  points+=(similarVerbs/stdVerbs.length)*5;
+
   //remarks
   if(points > 75 && points < 100){
         remarks="Document is good";
@@ -124,18 +125,18 @@ function makeJson(){
     var score = {
       Standard : 
         {
-          wordCount : standardLength,
-          nouns : standardNouns.length,
-          adjectives : standardAdjectives.length,
-          verbs : standardVerbs.length
+          wordCount : stdLength,
+          nouns : stdNouns.length,
+          adjectives : stdAdjectives.length,
+          verbs : stdVerbs.length
         }, 
 
-      Eval : 
+      Mydoc : 
         {
-          wordCount : evalLength,
-          nouns : evalNouns.length,
-          adjectives : evalAdjectives.length,
-          verbs : evalVerbs.length
+          wordCount : mydocLength,
+          nouns : mydocNouns.length,
+          adjectives : mydocAdjectives.length,
+          verbs : mydocVerbs.length
         },
       Result :
       {   commonNouns : similarNouns,
