@@ -14,6 +14,7 @@ var lexicon = new natural.Lexicon(lexiconFilename, defaultCategory);
 var rules = new natural.RuleSet(rulesFilename);
 var tagger = new natural.BrillPOSTagger(lexicon, rules);
 
+// initialising the variables used
 var mydocNouns = [];
 var stdNouns = [];
 var mydocAdjectives = [];
@@ -25,9 +26,9 @@ var similarAdjectives = 0;
 var similarVerbs = 0;
 
 
-//document to be evaluated
+//Read My document 
 var myDocument = fs.readFileSync('documents/payal_960.txt','utf-8');
-//standard document
+// Read standard document
 var stdDocument = fs.readFileSync('documents/stddoc.txt','utf-8');
 
 var stdTokens = tokenizer.tokenize(stdDocument);
@@ -61,8 +62,8 @@ console.log(mydocTagged);
       mydocVerbs.push(mydocTagged[i][0]); 
 }
   //similar nouns
-  var corpus = stdNouns;
-  var spellcheck = new natural.Spellcheck(corpus);
+  var check = stdNouns;
+  var spellcheck = new natural.Spellcheck(check);
 
   for(let i = 0; i < mydocNouns.length; i++){
   if(spellcheck.isCorrect(mydocNouns[i]))
@@ -70,16 +71,16 @@ console.log(mydocTagged);
   }
 
   //similar adjectives
-  corpus = stdAdjectives;
-  spellcheck = new natural.Spellcheck(corpus);
+  check = stdAdjectives;
+  spellcheck = new natural.Spellcheck(check);
   for(let i = 0; i < mydocAdjectives.length; i++){
   if(spellcheck.isCorrect(mydocAdjectives[i]))
     similarAdjectives++;
    }
 
   //similar verbs
-  corpus = stdVerbs;
-  spellcheck = new natural.Spellcheck(corpus);
+  check = stdVerbs;
+  spellcheck = new natural.Spellcheck(check);
   for(let i = 0; i < mydocVerbs.length; i++){
   if(spellcheck.isCorrect(mydocVerbs[i]))
     similarVerbs++;
@@ -108,10 +109,10 @@ if(mydocLength <= stdLength-range || mydocLength >= stdLength+range){
   points+=(similarVerbs/stdVerbs.length)*5;
 
   //remarks
-  if(points > 75 && points < 100){
+  if(points > 80 && points < 100){
         remarks="Document is good";
      } 
-     else if(points > 50 && points < 75){
+     else if(points > 50 && points < 80){
         remarks="Document is average";
      }
      else{
@@ -121,6 +122,7 @@ if(mydocLength <= stdLength-range || mydocLength >= stdLength+range){
 
 
 makeJson();
+// Function to make JSON
 function makeJson(){
     var score = {
       Standard : 
@@ -150,6 +152,6 @@ function makeJson(){
     }
 
   var json = JSON.stringify(score, null, 2);
-  
+  // Writing in the JSON file
   fs.writeFileSync('output.json',json)
 }
